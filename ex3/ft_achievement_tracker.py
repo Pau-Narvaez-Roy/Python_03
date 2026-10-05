@@ -2,18 +2,14 @@
 import random as rnd
 
 
-def gen_player_achievements() -> set:
-    achievements = ['Crafting Genius', 'Strategist', 'World Savior',
-                    'Speed Runner', 'Survivor', 'Master Explorer',
-                    'Treasure Hunter', 'Unstoppable', 'First Steps',
-                    'Collector Supreme', 'Untouchable', 'Sharp Mind',
-                    'Boss Slayer']
+def gen_player_achievements(archievements: set) -> set:
+    copy = list(archievements.copy())
     total = rnd.randrange(1, 14)
     player = []
     for i in range(0, total):
-        achievement = achievements[rnd.randrange(0, 13 - i)]
+        achievement = copy[rnd.randrange(0, 13 - i)]
         player.append(achievement)
-        achievements.remove(achievement)
+        copy.remove(achievement)
     return set(player)
 
 
@@ -24,13 +20,13 @@ if __name__ == "__main__":
                     'Treasure Hunter', 'Unstoppable', 'First Steps',
                     'Collector Supreme', 'Untouchable', 'Sharp Mind',
                     'Boss Slayer'}
-    alice = gen_player_achievements()
+    alice = gen_player_achievements(achievements)
     print(f"Player Alice: {alice}")
-    bob = gen_player_achievements()
+    bob = gen_player_achievements(achievements)
     print(f"Player Bob: {bob}")
-    charlie = gen_player_achievements()
+    charlie = gen_player_achievements(achievements)
     print(f"Player Charlie: {charlie}")
-    dylan = gen_player_achievements()
+    dylan = gen_player_achievements(achievements)
     print(f"Player Dylan: {dylan}")
     print()
     print(f"All distinct achievements: {achievements}")
