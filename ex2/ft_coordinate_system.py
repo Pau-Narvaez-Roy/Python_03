@@ -19,8 +19,8 @@ def get_player_pos() -> tuple:
             print(f"Error on parameter '{str.split(',')[index_error]}':",
                   "could not convert string to float:",
                   f"'{str.split(',')[index_error]}'")
-    tuple = [list[0], list[1], list[2]]
-    return tuple
+    tpl = [list[0], list[1], list[2]]
+    return tuple(tpl)
 
 
 if __name__ == "__main__":
